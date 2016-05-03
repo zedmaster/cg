@@ -7,7 +7,7 @@ function convertFile($uploaddir, $uploadfile, $id){
         }
         $xcg = $x/2;
 
-        exec("convert {$uploadfile} -resize {$x}x  null: \( {$uploaddir}cg.gif -coalesce -resize {$xcg}x \) -gravity SouthEast -layers composite -layers optimize {$uploaddir}{$id}_cg.gif");
+        exec("convert {$uploadfile} -resize {$x}x  -background '#FFFFFF' -flatten null: \( {$uploaddir}cg.gif -coalesce -resize {$xcg}x \) -gravity SouthEast -layers composite -layers optimize {$uploaddir}{$id}_cg.gif");
         unlink($uploadfile);
         $img = "img/{$id}_cg.gif";
 
